@@ -1443,7 +1443,8 @@ float frate;
 int fint = 3;
 			
 void setup() {
-  size(640, 360);
+  size(screenWidth, screenHeight);
+ 
   flock = new Flock();
   myFont = createFont("Georgia", 16);
   textFont(myFont);
