@@ -1,11 +1,10 @@
+<html>
+<head>
 
-<html> 
-	<head>
-	
-    <meta name="apple-mobile-web-app-capable"content="yes">
-	
-	<style>
-		*{
+<meta name="apple-mobile-web-app-capable"content="yes">
+
+<style type="text/css">
+		body{
 			padding:0;
 			margin:0;
 			}
@@ -18,26 +17,10 @@
 			width:100%;
 			height:100%;
 			}
-		
-	</style>
-	
-	
-	
-<script>
-	function atualizar() {
-		
-		var codigoFonte=document.getElementById("caixatexto").value;
-		
-		
-		
-		var canvas=document.getElementById("main");
-		var p=Processing(canvas,codigoFonte);
-		
-	}
-</script>
-	
-<script>
-		!function e(t,n,r){function i(o,a){if(!n[o]){if(!t[o]){var l="function"==typeof require&&require
+</style>
+
+
+<script > !function e(t,n,r){function i(o,a){if(!n[o]){if(!t[o]){var l="function"==typeof require&&require
 if(!a&&l)return l(o,!0)
 if(s)return s(o,!0)
 var h=new Error("Cannot find module '"+o+"'")
@@ -1458,23 +1441,33 @@ b(this),Ir(xe)}}
 return E.debug=function(){return"console"in l?function(e){l.console.log("Processing.js: "+e)}:u}(),E.prototype=r,E.instances=x,E.getInstanceById=function(e){return x[A[e]]},function(e){function t(e){return function(){throw"Processing.js does not support "+e+"."}}for(var n,r,i="open() createOutput() createInput() BufferedReader selectFolder() dataPath() createWriter() selectOutput() beginRecord() saveStream() endRecord() selectInput() saveBytes() createReader() beginRaw() endRaw() PrintWriter delay()".split(" "),s=i.length;s--;)n=i[s],r=n.replace("()",""),e[r]=t(n)}(r),E}},{}],28:[function(e,t,n){var r={virtEquals:e("./Helpers/virtEquals"),virtHashCode:e("./Helpers/virtHashCode"),ObjectIterator:e("./Helpers/ObjectIterator"),PConstants:e("./Helpers/PConstants"),ArrayList:e("./Objects/ArrayList"),HashMap:e("./Objects/HashMap"),PVector:e("./Objects/PVector"),PFont:e("./Objects/PFont"),Char:e("./Objects/Char"),XMLAttribute:e("./Objects/XMLAttribute"),XMLElement:e("./Objects/XMLElement"),PMatrix2D:e("./Objects/PMatrix2D"),PMatrix3D:e("./Objects/PMatrix3D"),PShape:e("./Objects/PShape"),colors:e("./Objects/webcolors"),PShapeSVG:e("./Objects/PShapeSVG"),CommonFunctions:e("./P5Functions/commonFunctions"),defaultScope:e("./Helpers/defaultScope"),Processing:e("./Processing"),setupParser:e("./Parser/Parser"),finalize:e("./Helpers/finalizeProcessing")}
 r.extend={withMath:e("./P5Functions/Math.js"),withProxyFunctions:e("./P5Functions/JavaProxyFunctions")(r.virtHashCode,r.virtEquals),withTouch:e("./P5Functions/touchmouse"),withCommonFunctions:r.CommonFunctions.withCommonFunctions},t.exports=function(t,n){var i=function(){},s=r.virtEquals,o=r.virtHashCode,a=r.PConstants,l=r.CommonFunctions,h=r.ObjectIterator,u=r.Char,c=r.XMLAttribute(),f=r.ArrayList({virtHashCode:o,virtEquals:s}),p=r.HashMap({virtHashCode:o,virtEquals:s}),m=r.PVector({PConstants:a}),g=r.PFont({Browser:t,noop:i}),d=r.XMLElement({Browser:t,XMLAttribute:c}),v=r.PMatrix2D({p:l}),y=r.PMatrix3D({p:l}),x=r.PShape({PConstants:a,PMatrix2D:v,PMatrix3D:y}),A=r.PShapeSVG({CommonFunctions:l,PConstants:a,PShape:x,XMLElement:d,colors:r.colors}),b=r.defaultScope({ArrayList:f,HashMap:p,PVector:m,PFont:g,PShapeSVG:A,ObjectIterator:h,PConstants:a,Char:u,XMLElement:d,XML:d}),w=r.Processing({defaultScope:b,Browser:t,extend:r.extend,noop:i})
 return w=r.setupParser(w,{Browser:t,aFunctions:n,defaultScope:b}),w=r.finalize(w,{version:e("../package.json").version,isDomPresent:t.isDomPresent,window:t.window,document:t.document,noop:i})}},{"../package.json":2,"./Helpers/ObjectIterator":3,"./Helpers/PConstants":4,"./Helpers/defaultScope":6,"./Helpers/finalizeProcessing":7,"./Helpers/virtEquals":8,"./Helpers/virtHashCode":9,"./Objects/ArrayList":10,"./Objects/Char":11,"./Objects/HashMap":12,"./Objects/PFont":13,"./Objects/PMatrix2D":14,"./Objects/PMatrix3D":15,"./Objects/PShape":16,"./Objects/PShapeSVG":17,"./Objects/PVector":18,"./Objects/XMLAttribute":19,"./Objects/XMLElement":20,"./Objects/webcolors":21,"./P5Functions/JavaProxyFunctions":22,"./P5Functions/Math.js":23,"./P5Functions/commonFunctions":24,"./P5Functions/touchmouse":25,"./Parser/Parser":26,"./Processing":27}]},{},[1])
+</script>
 
-		</script>
-	</head>
-	<body>
-	  <div class="main">
+
+</head>
+
+<body>
+
+<canvas id="tela" > </canvas>
+<div class="main">
 			<textarea rows="20" id="caixatexto" onkeyup="atualizar()"> </textarea>
 			
 	  </div>
-	
-	
-	
-		<script  >
-        
-			
-		</script>
-		<canvas> </canvas>
-	</body>
+
+
+<script > 
+function atualizar() {
+//var codigo="void setup() {size(200,200);background(0,0,255);}";
+var codigo=document.getElementById("caixatexto").value;
+var c = document.getElementById("tela");
+var p = new Processing(c, codigo);
+}
+</script>
+
+
+
+
+</body>
+
+
 </html>
-
-
