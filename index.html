@@ -27,11 +27,14 @@
 		box-sizing: border-box;
 		resize: none;
 		outline: none;
+		maximum-scale: 1.0;
 		-webkit-touch-callout: default;
 		touch-callout: default;
 		}
 		
 </style>
+
+
 
 
 <script > !function e(t,n,r){function i(o,a){if(!n[o]){if(!t[o]){var l="function"==typeof require&&require
@@ -1457,6 +1460,7 @@ r.extend={withMath:e("./P5Functions/Math.js"),withProxyFunctions:e("./P5Function
 return w=r.setupParser(w,{Browser:t,aFunctions:n,defaultScope:b}),w=r.finalize(w,{version:e("../package.json").version,isDomPresent:t.isDomPresent,window:t.window,document:t.document,noop:i})}},{"../package.json":2,"./Helpers/ObjectIterator":3,"./Helpers/PConstants":4,"./Helpers/defaultScope":6,"./Helpers/finalizeProcessing":7,"./Helpers/virtEquals":8,"./Helpers/virtHashCode":9,"./Objects/ArrayList":10,"./Objects/Char":11,"./Objects/HashMap":12,"./Objects/PFont":13,"./Objects/PMatrix2D":14,"./Objects/PMatrix3D":15,"./Objects/PShape":16,"./Objects/PShapeSVG":17,"./Objects/PVector":18,"./Objects/XMLAttribute":19,"./Objects/XMLElement":20,"./Objects/webcolors":21,"./P5Functions/JavaProxyFunctions":22,"./P5Functions/Math.js":23,"./P5Functions/commonFunctions":24,"./P5Functions/touchmouse":25,"./Parser/Parser":26,"./Processing":27}]},{},[1])
 </script>
 
+<script> var proc; </script>
 
 </head>
 
@@ -1468,13 +1472,17 @@ return w=r.setupParser(w,{Browser:t,aFunctions:n,defaultScope:b}),w=r.finalize(w
 			
 	  </div>
 
+	  
 
 <script > 
 function atualizar() {
+var codigo,c;
 //var codigo="void setup() {size(200,200);background(0,0,255);}";
-var codigo=document.getElementById("caixatexto").value;
-var c = document.getElementById("tela");
-var p = new Processing(c, codigo);
+if(proc) {proc.exit();proc=null;}
+
+codigo=document.getElementById("caixatexto").value;
+c = document.getElementById("tela");
+proc = new Processing(c, codigo); 
 }
 </script>
 
