@@ -26,7 +26,7 @@
 		outline: none;
 		-webkit-touch-callout: default;
 		touch-callout: default;
-		background: #616161;
+		background: #a1a1a1;
 		}
 		
 	#tela {
@@ -1476,7 +1476,15 @@ return w=r.setupParser(w,{Browser:t,aFunctions:n,defaultScope:b}),w=r.finalize(w
 			
 	  </div>
 
-<canvas id="tela" > </canvas>	  
+<canvas id="tela" > </canvas>	
+
+<input type="text" id="teclado">
+
+<script>
+teclado.onfocus=function() {
+	caixatexto.height=100;
+	}
+</script>
 
 <script > 
 function atualizar() {
