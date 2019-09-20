@@ -1573,15 +1573,18 @@ var codigo,c;
 
 if(text.data=="STOP !!!") {
 document.getElementById("tela").style.visibility = "visible";
-document.getElementById("tela").focus();
 document.getElementById("caixatexto").style.visibility = "hidden";
+document.getElementById("tela").style.height = "100%";
+document.getElementById("caixatexto").style.height = "0%";
 
 codigo=document.getElementById("caixatexto").value;
 c = document.getElementById("tela");
 proc = new Processing(c, codigo); } else  
-if(proc) {proc.exit();proc=null;document.getElementById("tela").style.visibility = "hidden";
+if(proc) {proc.exit();proc=null;
+document.getElementById("tela").style.visibility = "hidden";
 document.getElementById("caixatexto").style.visibility = "visible";
-document.getElementById("mytext").blur();
+document.getElementById("tela").style.height = "0%";
+document.getElementById("caixatexto").style.height = "100%";
 }
 }
 </script>
