@@ -1548,17 +1548,18 @@ void segment(float x, float y, float a) {
 
 <button type="button" id="compilar" onclick="rodar()">RUN !!!</button>
 
-<button type="button" id="carregar" onclick="loadf()">CARREGAR</button>
+<button type="button" id="carregar" onclick="carrf()">CARREGAR</button>
 
 
 <script>
-function loadf() {
+function carrf() {
 var fdiag;
 fdiag = document.createElement("input");
 fdiag.id = "arquivo";
 fdiag.type = "file";
-fdiag.style.display = "none";
 
+fdiag.style.display = "none";
+fdiag.click();
 }
 </script>
 
