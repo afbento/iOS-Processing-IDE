@@ -12,15 +12,17 @@
 		height: 100vh;
 		overflow:hidden;
 		position: fixed;
+		-webkit-transition: height 0.4s ease-in-out;
+        transition: height 0.4s ease-in-out;
   
 		}
 	
 	#caixatexto {
 		position: absolute;
 		top: 5px;
-		left: 5px;
-		width: calc(100% - 10px);
-		height: calc(50% - 10px);
+		left: 0px;
+		width: 100%;//calc(100% - 10px);
+		height: 100%;//calc(50% - 10px);
 		padding: 5px 5px 5px;
 		font-size: 10px;
 		border: none;
@@ -33,14 +35,29 @@
 		touch-callout: default;
 		background: #b5a1a1;
 		
+		
 		}
+	
+	#caixatexto:focus {
+		background: #eeeeee;
+		bodyde .height: 60vh;
+		}
+	
+	#compilar {	
+		position: absolute;
+		z-index:5;
+		-webkit-transition: height 0.4s ease-in-out;
+        transition: height 0.4s ease-in-out;
+	}	
 		
 	#tela {
 		position: absolute;
+		//width: 100vw;
+		//height: 100vh;
 		opacity:1.0;
-		top: 50%;
 		
-		z-index: 4;
+		
+		z-index:-1;
 	}
 		
 </style>
@@ -1479,23 +1496,62 @@ return w=r.setupParser(w,{Browser:t,aFunctions:n,defaultScope:b}),w=r.finalize(w
 
 
 <div class="main">
-			<textarea rows="20" id="caixatexto" onkeyup="atualizar()" onfocus="<style type="text/css"> body {height: 50vh;}</style>" onblur="<style type="text/css"> body {height: 100vh;}</style>"> </textarea>
+			<textarea rows="20" id="caixatexto" onkeyup="atualizar()" > float[] x = new float[20];
+float[] y = new float[20];
+float segLength = 18;
+
+void setup() {
+  size(screen.width, screen.height);
+  strokeWeight(9);
+  stroke(255, 100);
+}
+
+void draw() {
+  background(0);
+  dragSegment(0, mouseX, mouseY);
+  for(int i=0; i<x.length-1; i++) {
+    dragSegment(i+1, x[i], y[i]);
+  }
+}
+
+void dragSegment(int i, float xin, float yin) {
+  float dx = xin - x[i];
+  float dy = yin - y[i];
+  float angle = atan2(dy, dx);  
+  x[i] = xin - cos(angle) * segLength;
+  y[i] = yin - sin(angle) * segLength;
+  segment(x[i], y[i], angle);
+}
+
+void segment(float x, float y, float a) {
+  pushMatrix();
+  translate(x, y);
+  rotate(a);
+  line(0, 0, segLength, 0);
+  popMatrix();
+}</textarea>
 			
 	  </div>
 
 <canvas id="tela" > </canvas>	
 
 
+<button type="button" id="compilar" onclick="rodar()">RUN !!!</button>
+
 
 <script > 
-function atualizar() {
+function rodar() {
+var text = document.getElementById("compilar").firstChild;
+text.data = text.data == "RUN !!!" ? "STOP !!!" : "RUN !!!";
+
 var codigo,c;
 //var codigo="void setup() {size(200,200);background(0,0,255);}";
-if(proc) {proc.exit();proc=null;}
 
+if(text.data=="STOP !!!") {
+document.getElementById("tela").style.zIndex = 5;
 codigo=document.getElementById("caixatexto").value;
 c = document.getElementById("tela");
-proc = new Processing(c, codigo); 
+proc = new Processing(c, codigo); } else  if(proc) {proc.exit();proc=null;document.getElementById("tela").style.zIndex = -1;}
 }
 </script>
 
