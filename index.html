@@ -42,7 +42,7 @@
 	
 	#caixatexto:focus {
 		background: #24282C;
-		height: 120%;
+		//height: 120%;
 		}
 	
 	#compilar {	
@@ -1551,12 +1551,15 @@ var codigo,c;
 
 if(text.data=="STOP !!!") {
 document.getElementById("tela").style.visibility = "visible";
+document.getElementById("tela").focus();
 document.getElementById("caixatexto").style.visibility = "hidden";
+
 codigo=document.getElementById("caixatexto").value;
 c = document.getElementById("tela");
 proc = new Processing(c, codigo); } else  
 if(proc) {proc.exit();proc=null;document.getElementById("tela").style.visibility = "hidden";
 document.getElementById("caixatexto").style.visibility = "visible";
+document.getElementById("mytext").blur();
 }
 }
 </script>
