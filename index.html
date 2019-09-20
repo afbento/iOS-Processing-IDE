@@ -1548,10 +1548,14 @@ var codigo,c;
 //var codigo="void setup() {size(200,200);background(0,0,255);}";
 
 if(text.data=="STOP !!!") {
-document.getElementById("tela").style.zIndex = 5;
+document.getElementById("tela").style.height = "100%";
+document.getElementById("caixatexto").style.height = "0%";
 codigo=document.getElementById("caixatexto").value;
 c = document.getElementById("tela");
-proc = new Processing(c, codigo); } else  if(proc) {proc.exit();proc=null;document.getElementById("tela").style.zIndex = -1;}
+proc = new Processing(c, codigo); } else  
+if(proc) {proc.exit();proc=null;document.getElementById("tela").style.height = "0%";
+document.getElementById("caixatexto").style.height = "100%";
+}
 }
 </script>
 
