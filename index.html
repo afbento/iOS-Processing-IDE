@@ -51,6 +51,14 @@
 		//-webkit-transition: height 0.4s ease-in-out;
        // transition: height 0.4s ease-in-out;
 	}	
+	
+	#carregar {	
+		position: absolute;
+		z-index:5;
+		left:5%;
+		//-webkit-transition: height 0.4s ease-in-out;
+       // transition: height 0.4s ease-in-out;
+	}	
 		
 	#tela {
 		position: absolute;
@@ -1540,6 +1548,19 @@ void segment(float x, float y, float a) {
 
 <button type="button" id="compilar" onclick="rodar()">RUN !!!</button>
 
+<button type="button" id="carregar" onclick="loadf()">CARREGAR</button>
+
+
+<script>
+function loadf() {
+var fdiag;
+fdiag = document.createElement("input");
+fdiag.id = "arquivo";
+fdiag.type = "file";
+fdiag.style.display = "none";
+
+}
+</script>
 
 <script > 
 function rodar() {
