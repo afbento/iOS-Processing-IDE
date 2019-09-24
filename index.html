@@ -61,7 +61,7 @@
 	}	
 		
 	#tela {
-		position: absolute;
+		position: fixed;
 		//width: 100%;
 		//height: 100%;
 		opacity:1.0;
@@ -1523,7 +1523,7 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  background(50);
   dragSegment(0, mouseX, mouseY);
   for(int i=0; i<x.length-1; i++) {
     dragSegment(i+1, x[i], y[i]);
